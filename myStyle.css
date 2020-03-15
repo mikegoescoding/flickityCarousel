@@ -1,0 +1,155 @@
+/* external css: flickity.css */
+
+html {
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 80vh;
+}
+
+body {
+	padding: 5px;
+	margin: 0;
+}
+
+/* img {
+	width: auto;
+	height: auto;
+	border-radius: 10px;
+} */
+
+.carousel-cell img {
+	display: block;
+	max-width: 100%;
+	max-height: calc(100% - 50px);
+	border-radius: 10px;
+	padding: 0;
+	/* dim unselected */
+	opacity: 0.7;
+	-webkit-transform: scale(0.95);
+	transform: scale(0.95);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s, transform 0.3s,
+		-webkit-filter 0.3s, filter 0.3s;
+	transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+}
+
+/* brighten selected image */
+.carousel-cell.is-selected img {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-filter: none;
+	filter: none;
+}
+
+.carousel {
+	height: 100%;
+	background: #606060;
+	position: relative;
+}
+
+.carousel-cell {
+	/*   width: 25%; */
+	width: 66%;
+	height: 100%;
+	/*   height: 100%; */
+	padding: 5px;
+	/*     width: 100%;*/ /* full width */
+	/*   height: 160px;*/ /* height of carousel */
+	/*   border-radius: 15px; */
+	counter-increment: carousel-cell;
+}
+
+/* dots are lines */
+.flickity-page-dots .dot {
+	height: 4px;
+	width: 50px;
+	margin: 5px;
+	border-radius: 0;
+}
+
+/* prev/next buttons */
+/* big buttons, no circle */
+.flickity-prev-next-button {
+	width: 100px;
+	height: 100px;
+	background: transparent;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+	fill: white;
+}
+.flickity-prev-next-button.no-svg {
+	color: white;
+}
+.flickity-prev-next-button:hover {
+	background: transparent;
+}
+/* hide disabled button */
+.flickity-prev-next-button:disabled {
+	display: none;
+}
+
+.flickity-enabled:focus .flickity-viewport {
+	outline: thin dotted;
+}
+
+/* cell number */
+.carousel-cell:before {
+	display: block;
+	/*   text-align: center; */
+	content: counter(carousel-cell);
+	/*   line-height: 200px; */
+	font-size: 40px;
+	color: white;
+}
+
+.static-banner {
+	position: absolute;
+	background: lightblue;
+	opacity: 0.8;
+	z-index: 1;
+	padding: 2px 10px;
+	font-size: 20px;
+	color: white;
+	pointer-events: none;
+}
+
+.static-banner1 {
+	left: 7px;
+	top: 7px;
+}
+
+/* media queries */
+
+@media (max-width: 700px) {
+	.carousel-cell {
+		width: 33.33%;
+	}
+}
+
+@media (max-width: 600px) {
+	.carousel-cell {
+		width: 50%;
+	}
+}
+
+@media (max-width: 500px) {
+	.carousel-cell {
+		width: 100%;
+	}
+}
+
+/* disable arrows for mobile */
+/* @media screen and ( max-width: 480px ) {
+.flickity-prev-next-button {
+display: none;
+} */
